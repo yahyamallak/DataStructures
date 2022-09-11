@@ -13,6 +13,8 @@ void insertNode(int value);
 
 void deleteNode(int value);
 
+void insert_beg(int value);
+
 void display();
 
 
@@ -28,6 +30,10 @@ int main() {
     display();
 
     deleteNode(15);
+
+    display();
+
+    insert_beg(15);
 
     display();
 
@@ -79,7 +85,7 @@ void deleteNode(int value) {
 
     if(current->data == value) {
         head = current->next;
-        free(current);
+        //free(current);
         return;
     }
 
@@ -89,5 +95,13 @@ void deleteNode(int value) {
     }
 
     previous->next = current->next;
-    free(current);
+    //free(current);
+}
+
+void insert_beg(int value) {
+    node * new_node = new node;
+
+    new_node->data = value;
+    new_node->next = head;
+    head = new_node;
 }
