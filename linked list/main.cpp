@@ -11,6 +11,8 @@ node* head = NULL;
 
 void insertNode(int value);
 
+void deleteNode(int value);
+
 void display();
 
 
@@ -22,6 +24,10 @@ int main() {
     insertNode(3);
     insertNode(15);
     insertNode(0);
+
+    display();
+
+    deleteNode(15);
 
     display();
 
@@ -60,4 +66,28 @@ void display() {
             currentNode = currentNode->next;
         }
     }
+
+    cout << endl;
+}
+
+
+void deleteNode(int value) {
+    node * current, * previous;
+
+    current = head;
+    previous = head;
+
+    if(current->data == value) {
+        head = current->next;
+        free(current);
+        return;
+    }
+
+    while(current->data != value) {
+        previous = current;
+        current = current->next;
+    }
+
+    previous->next = current->next;
+    free(current);
 }
