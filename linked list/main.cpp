@@ -15,6 +15,8 @@ void deleteNode(int value);
 
 void insert_beg(int value);
 
+void delete_beg();
+
 void display();
 
 
@@ -34,6 +36,10 @@ int main() {
     display();
 
     insert_beg(15);
+
+    display();
+
+    delete_beg();
 
     display();
 
@@ -85,7 +91,7 @@ void deleteNode(int value) {
 
     if(current->data == value) {
         head = current->next;
-        //free(current);
+        delete(current);
         return;
     }
 
@@ -95,7 +101,7 @@ void deleteNode(int value) {
     }
 
     previous->next = current->next;
-    //free(current);
+    delete(current);
 }
 
 void insert_beg(int value) {
@@ -104,4 +110,15 @@ void insert_beg(int value) {
     new_node->data = value;
     new_node->next = head;
     head = new_node;
+}
+
+
+void delete_beg() {
+    if(head == NULL) {
+        cout << "Linked list is empty.";
+    } else {
+        node * first_node = head;
+        head = first_node->next;
+        delete(first_node);
+    }
 }
