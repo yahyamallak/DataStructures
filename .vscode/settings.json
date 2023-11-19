@@ -1,7 +1,10 @@
 {
     "C_Cpp.errorSquiggles": "Disabled",
     "files.associations": {
+        "*.embeddedhtml": "html",
         ".htaccess": "ini",
-        "iostream": "cpp"
+        "*.cpp": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp"
     }
 }
